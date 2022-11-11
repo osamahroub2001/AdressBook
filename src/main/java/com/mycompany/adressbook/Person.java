@@ -66,6 +66,7 @@ public class Person {
     }
     
     public void setEmail(String email) {
+        if(isValidE(email))
         this.email = email;
     }
     
@@ -112,6 +113,14 @@ public class Person {
 
         //return m.matches();
         return Pattern.matches("^\\s*(?:\\+?(\\d{1,3}))?[-. (]*(\\d{3})[-. )]*(\\d{3})[-. ]*(\\d{4})(?: *x(\\d+))?\\s*$", name);
+        
+    }
+    
+    static boolean isValidE(String name) {
+
+        //return m.matches();
+        return Pattern.matches("^(?=.{1,64}@)[A-Za-z0-9_-]+(\\.[A-Za-z0-9_-]+)*@" 
+        + "[^-][A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})$", name);
         
     }
     
