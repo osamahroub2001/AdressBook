@@ -9,8 +9,8 @@ package com.mycompany.adressbook;
  * @author 7roub
  */
 public class Business extends Contact{
-    String Title,website,genre ;
-    Person p1 ;
+    private String Title,website,genre ;
+    private Person p1 ;
 
     public Business() {
     }

@@ -1,0 +1,13 @@
+@startuml
+class com.mycompany.adressbook.AdressBook
+class com.mycompany.adressbook.BrithDate
+class com.mycompany.adressbook.Business
+class com.mycompany.adressbook.Contact
+class com.mycompany.adressbook.Person
+class java.time.LocalDate
+class java.util.regex.Pattern
+com.mycompany.adressbook.BrithDate ..> java.time.LocalDate
+com.mycompany.adressbook.Business --|> com.mycompany.adressbook.Contact
+com.mycompany.adressbook.Contact ..> java.util.regex.Pattern
+com.mycompany.adressbook.Person --|> com.mycompany.adressbook.Contact
+@enduml
