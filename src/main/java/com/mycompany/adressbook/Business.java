@@ -9,18 +9,21 @@ package com.mycompany.adressbook;
  * @author 7roub
  */
 public class Business extends Contact{
-    String Title,website ;
+    String Title,website,genre ;
     Person p1 ;
 
     public Business() {
     }
 
-    public Business(String Title, String website, Person p1, String country, String city, String phoneNumber, String email, int postalCode, BrithDate bd1) {
+    public Business(String Title, String website, String genre, Person p1, String country, String city, String phoneNumber, String email, int postalCode, BrithDate bd1) {
         super(country, city, phoneNumber, email, postalCode, bd1);
         this.Title = Title;
         this.website = website;
+        this.genre = genre;
         this.p1 = p1;
     }
+
+   
     
 
     public String getTitle() {
@@ -45,6 +48,14 @@ public class Business extends Contact{
 
     public void setP1(Person p1) {
         this.p1 = p1;
+    }
+
+    public String getGenre() {
+        return genre;
+    }
+
+    public void setGenre(String genre) {
+        this.genre = genre;
     }
     
     
