@@ -15,8 +15,8 @@ public class Business extends Contact{
     public Business() {
     }
 
-    public Business(String Title, String website, String genre, Person p1, String country, String city, String phoneNumber, String email, int postalCode, BrithDate bd1) {
-        super(country, city, phoneNumber, email, postalCode, bd1);
+    public Business(String Title, String website, String genre, Person p1, String country, String city, String phoneNumber, String email, int postalCode) {
+        super(country, city, phoneNumber, email, postalCode);
         this.Title = Title;
         this.website = website;
         this.genre = genre;
