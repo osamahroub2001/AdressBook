@@ -21,7 +21,6 @@ import java.util.*;
  *
  * @author 7roub
  */
-
 public class MenuJF extends javax.swing.JFrame {
 
     /**
@@ -30,7 +29,7 @@ public class MenuJF extends javax.swing.JFrame {
     public Comparator<Contact> compareBytoString = (Contact o1, Contact o2) -> o1.getName().compareTo(o2.getName());
     public static ArrayList<Contact> pp;
     public int x;
-    boolean flag ;
+    boolean flag;
 
     public MenuJF() {
         initComponents();
@@ -76,7 +75,7 @@ public class MenuJF extends javax.swing.JFrame {
         }
 
     }
-   
+
     ArrayList<Person> pB = new ArrayList<>();
 
     public void AddPersonForB(Person p) {
@@ -125,6 +124,15 @@ public class MenuJF extends javax.swing.JFrame {
 
     public boolean isValidePost(String postal) {
         return Pattern.matches("^[0-9]{5}(?:-[0-9]{4})?$", postal);
+    }
+
+    public boolean isValideYear(String year) {
+        try{
+        int x = Integer.parseInt(year);}
+        catch(Exception e){
+        
+        }
+        return Pattern.matches("^[0-9]{4}(?:-[0-9]{4})?$", year) && x > 1920 && x < 2023;
     }
 
     public boolean Validcounty(String country) {
@@ -289,6 +297,11 @@ public class MenuJF extends javax.swing.JFrame {
         jLabel55 = new javax.swing.JLabel();
         jLabel56 = new javax.swing.JLabel();
         LshowBtel = new javax.swing.JLabel();
+        ResultShow = new javax.swing.JFrame();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        List1 = new javax.swing.JList<>();
+        jButton7 = new javax.swing.JButton();
+        jButton11 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         List = new javax.swing.JList<>();
         jButton5 = new javax.swing.JButton();
@@ -333,6 +346,12 @@ public class MenuJF extends javax.swing.JFrame {
         });
 
         month.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", " " }));
+
+        year.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                yearActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel1.setText("      Add New Person ");
@@ -1183,6 +1202,45 @@ public class MenuJF extends javax.swing.JFrame {
 
         LshowG.getAccessibleContext().setAccessibleDescription("");
 
+        jScrollPane2.setViewportView(List1);
+
+        jButton7.setText("Show");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
+
+        jButton11.setText("Cancel");
+
+        javax.swing.GroupLayout ResultShowLayout = new javax.swing.GroupLayout(ResultShow.getContentPane());
+        ResultShow.getContentPane().setLayout(ResultShowLayout);
+        ResultShowLayout.setHorizontalGroup(
+            ResultShowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ResultShowLayout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(36, 36, 36)
+                .addGroup(ResultShowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(38, Short.MAX_VALUE))
+        );
+        ResultShowLayout.setVerticalGroup(
+            ResultShowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ResultShowLayout.createSequentialGroup()
+                .addGroup(ResultShowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(ResultShowLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(ResultShowLayout.createSequentialGroup()
+                        .addGap(96, 96, 96)
+                        .addComponent(jButton7)
+                        .addGap(29, 29, 29)
+                        .addComponent(jButton11)))
+                .addContainerGap(20, Short.MAX_VALUE))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("AddressBook");
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -1283,56 +1341,6 @@ public class MenuJF extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
-        // TODO add your handling code here:
-        flag =false ;
-        title.setText(null);
-        genre.setText(null);
-        CityforB.setText(null);
-        webForb.setText(null);
-        emailForb.setText(null);
-        countryForB.setText(null);
-        PostalCodeForBus.setText(null);
-        TelForb.setText(null);
-        fname.setText(null);
-        lname.setText(null);
-        city.setText(null);
-        country.setText(null);
-        year.setText(null);
-        pc.setText(null);
-        email.setText(null);
-        phnumber.setText(null);
-        lab1.setText(null);
-        AddBus.setSize(440, 670);
-        AddBus.setVisible(true);
-        pB.clear();
-        Lab2.setText(null);
-
-
-    }//GEN-LAST:event_jMenuItem4ActionPerformed
-
-    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-        fname.setText(null);
-        lname.setText(null);
-        city.setText(null);
-        country.setText(null);
-        year.setText(null);
-        pc.setText(null);
-        email.setText(null);
-        phnumber.setText(null);
-        lab1.setText(null);
-        AddPerson.setVisible(true);
-        
-        AddPerson.setSize(404, 570);
-        jButton1.setVisible(true);
-        SavePerfb.setVisible(false);
-        lab1.setText(null);
-        
-        // TODO add your handling code here:
-
-
-    }//GEN-LAST:event_jMenuItem3ActionPerformed
-
     private void cityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cityActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cityActionPerformed
@@ -1343,7 +1351,7 @@ public class MenuJF extends javax.swing.JFrame {
             lab1.setText("Please enter all the filed!!");
             lab1.setForeground(Color.red);
         } else {
-            if (!(isValidString(fname.getText()) && isValidString(lname.getText()) && isValidE(email.getText()) && isValidPhn(phnumber.getText()) && Validcounty(city.getText()) && Validcounty(country.getText()) && isValidePost(pc.getText()))) {
+            if (!( isValideYear(year.getText())&&isValidString(fname.getText()) && isValidString(lname.getText()) && isValidE(email.getText()) && isValidPhn(phnumber.getText()) && Validcounty(city.getText()) && Validcounty(country.getText()) && isValidePost(pc.getText()) )) {
                 lab1.setText("Check the filed!!");
                 if (isValidString(lname.getText())) {
                     llname.setText("Valid");
@@ -1396,6 +1404,14 @@ public class MenuJF extends javax.swing.JFrame {
                     lfname.setText(" not Valid");
                     lfname.setForeground(Color.red);
                 }
+                
+                if (isValideYear(year.getText())) {
+                    ldate.setText("Valid");
+                    ldate.setForeground(Color.green);
+                } else {
+                    ldate.setText(" not Valid");
+                    ldate.setForeground(Color.red);
+                }
 
             } else {
                 llname.setText(null);
@@ -1428,7 +1444,6 @@ public class MenuJF extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Successfuly Save");
                 AddPerson.dispose();
                 showw();
-               
 
             }
         }
@@ -1463,7 +1478,7 @@ public class MenuJF extends javax.swing.JFrame {
             lab1.setText("Please enter all the filed!!");
             lab1.setForeground(Color.red);
         } else {
-            if (!(isValidString(fname.getText()) && isValidString(lname.getText()) && isValidE(email.getText()) && isValidPhn(phnumber.getText()) && Validcounty(city.getText()) && Validcounty(country.getText()) && isValidePost(pc.getText()))) {
+            if (!(isValideYear(year.getText())&&isValidString(fname.getText()) && isValidString(lname.getText()) && isValidE(email.getText()) && isValidPhn(phnumber.getText()) && Validcounty(city.getText()) && Validcounty(country.getText()) && isValidePost(pc.getText()))) {
                 lab1.setText("Check the filed!!");
                 if (isValidString(lname.getText())) {
                     llname.setText("Valid");
@@ -1516,9 +1531,16 @@ public class MenuJF extends javax.swing.JFrame {
                     lfname.setText(" not Valid");
                     lfname.setForeground(Color.red);
                 }
+                if (isValideYear(year.getText())) {
+                    ldate.setText("Valid");
+                    ldate.setForeground(Color.green);
+                } else {
+                    ldate.setText(" not Valid");
+                    ldate.setForeground(Color.red);
+                }
 
             } else {
-                
+
                 llname.setText(null);
                 lcity.setText(null);
                 lph.setText(null);
@@ -1544,7 +1566,6 @@ public class MenuJF extends javax.swing.JFrame {
                 Person p2 = new Person(name, Lname, bd, Country, City, Phone, Email, Postal);
                 pB.add(p2);
                 AddPerson.dispose();
-               
 
             }
         }
@@ -1658,13 +1679,13 @@ public class MenuJF extends javax.swing.JFrame {
                     saveArrayToFile();
                     JOptionPane.showMessageDialog(null, "Successfuly Save");
                     showw();
-                    if(flag){
-                    pp.remove(x);
-                    saveArrayToFile();
-                    
+                    if (flag) {
+                        pp.remove(x);
+                        saveArrayToFile();
+
                     }
-                }    
-            }    
+                }
+            }
         }
         showw();
     }//GEN-LAST:event_jButton3ActionPerformed
@@ -1672,16 +1693,6 @@ public class MenuJF extends javax.swing.JFrame {
     private void webForbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_webForbActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_webForbActionPerformed
-
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
-        int index = List.getSelectedIndex();
-        if (index != -1) {
-            pp.remove(index);
-        }
-        saveArrayToFile();
-        showw();
-    }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
         // TODO add your handling code here:
@@ -1699,31 +1710,30 @@ public class MenuJF extends javax.swing.JFrame {
             LshowPc.setText(p.getPostalCode());
             LshowCoun.setText(p.getCountry());
         } catch (Exception e) {
-            try{
-            Jshow.dispose();
-            JBshow.setVisible(true);
-            JBshow.setSize(860, 670);
-            Business b1 = (Business) pp.get(List.getSelectedIndex());
-            LshowBD11.setText(b1.getP1().getBd1().toString());
-            LShowFn11.setText(b1.getP1().getFirstName());
-            LshowC11.setText(b1.getP1().getCity());
-            LshowE11.setText(b1.getP1().getEmail());
-            LshowPh11.setText(b1.getP1().getPhoneNumber());
-            LshowLn11.setText(b1.getP1().getName());
-            LshowPc11.setText(b1.getP1().getPostalCode());
-            LshowCoun11.setText(b1.getP1().getCountry());
-            LshowG.setText(b1.getGenre());
-            LshowBE.setText(b1.getEmail());
-            LshowW.setText(b1.getWebsite());
-            LshowT.setText(b1.getName());
-            LShowBPc.setText(b1.getPostalCode());
-            LShowBcity.setText(b1.getCity());
-            LshowBCountry.setText(b1.getCountry());
-            LshowBtel.setText(b1.getPhoneNumber());}
-            catch (Exception ee)
-            {
+            try {
+                Jshow.dispose();
+                JBshow.setVisible(true);
+                JBshow.setSize(860, 670);
+                Business b1 = (Business) pp.get(List.getSelectedIndex());
+                LshowBD11.setText(b1.getP1().getBd1().toString());
+                LShowFn11.setText(b1.getP1().getFirstName());
+                LshowC11.setText(b1.getP1().getCity());
+                LshowE11.setText(b1.getP1().getEmail());
+                LshowPh11.setText(b1.getP1().getPhoneNumber());
+                LshowLn11.setText(b1.getP1().getName());
+                LshowPc11.setText(b1.getP1().getPostalCode());
+                LshowCoun11.setText(b1.getP1().getCountry());
+                LshowG.setText(b1.getGenre());
+                LshowBE.setText(b1.getEmail());
+                LshowW.setText(b1.getWebsite());
+                LshowT.setText(b1.getName());
+                LShowBPc.setText(b1.getPostalCode());
+                LShowBcity.setText(b1.getCity());
+                LshowBCountry.setText(b1.getCountry());
+                LshowBtel.setText(b1.getPhoneNumber());
+            } catch (Exception ee) {
                 JBshow.dispose();
-            JOptionPane.showMessageDialog(null, "Please Chose one to Show");
+                JOptionPane.showMessageDialog(null, "Please Chose one to Show");
             }
 
         }
@@ -1768,9 +1778,9 @@ public class MenuJF extends javax.swing.JFrame {
 
         } catch (Exception e) {
             try {
-                flag =true;
+                flag = true;
                 Business b = (Business) pp.get(List.getSelectedIndex());
-               
+
                 AddBus.setVisible(true);
                 AddBus.setSize(470, 670);
                 title.setText(b.getName());
@@ -1786,22 +1796,19 @@ public class MenuJF extends javax.swing.JFrame {
                 lname.setText(b.getP1().getName());
                 city.setText(b.getP1().getCity());
                 country.setText(b.getP1().getCountry());
-                phnumber.setText( b.getP1().getPhoneNumber());
+                phnumber.setText(b.getP1().getPhoneNumber());
                 pc.setText(b.getP1().getPostalCode());
                 email.setText(b.getP1().getEmail());
                 year.setText(Integer.toString(b.getP1().getBd1().getYear()));
                 day.setSelectedItem(Integer.toString(b.getP1().getBd1().getDay()));
                 month.setSelectedItem(Integer.toString(b.getP1().getBd1().getMonth()));
-                
-            
 
                 x = List.getSelectedIndex();
+            } catch (Exception xx) {
+                JOptionPane.showMessageDialog(null, "Please Choose a Contact");
             }
-             catch (Exception xx) {
-            JOptionPane.showMessageDialog(null, "Please Choose a Contact");}
         }
 
-        
 
     }//GEN-LAST:event_jButton8ActionPerformed
 
@@ -1819,7 +1826,7 @@ public class MenuJF extends javax.swing.JFrame {
             lab1.setText("Please enter all the filed!!");
             lab1.setForeground(Color.red);
         } else {
-            if (!(isValidString(fname1.getText()) && isValidString(lname1.getText()) && isValidE(email1.getText()) && isValidPhn(phnumber1.getText()) && Validcounty(city1.getText()) && Validcounty(country1.getText()) && isValidePost(pc1.getText()))) {
+            if (!(isValideYear(year.getText())&&isValidString(fname1.getText()) && isValidString(lname1.getText()) && isValidE(email1.getText()) && isValidPhn(phnumber1.getText()) && Validcounty(city1.getText()) && Validcounty(country1.getText()) && isValidePost(pc1.getText()))) {
                 lab2.setText("Check the filed!!");
                 if (isValidString(lname1.getText())) {
                     llname1.setText("Valid");
@@ -1872,6 +1879,13 @@ public class MenuJF extends javax.swing.JFrame {
                     lfname1.setText(" not Valid");
                     lfname1.setForeground(Color.red);
                 }
+                if(isValideYear(year.getText())){
+                ldate.setText("Valid");
+                ldate.setForeground(Color.green);
+                }
+                else {
+                    ldate.setText(" not Valid");
+                    ldate.setForeground(Color.red);}
 
             } else {
                 llname1.setText(null);
@@ -1921,11 +1935,133 @@ public class MenuJF extends javax.swing.JFrame {
         showw();
     }//GEN-LAST:event_jButton12ActionPerformed
 
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+        int index = List.getSelectedIndex();
+        if (index != -1) {
+            pp.remove(index);
+        }
+        saveArrayToFile();
+        showw();
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    ArrayList<Contact> nn;
+
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
-       
-        
+        if (Lsearch.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Please Enter name to Serch ");
+        } else {
+            nn = new ArrayList<>();
+            ResultShow.setVisible(true);
+            ResultShow.setSize(397, 300);
+            for (int i = 0; i < pp.size(); i++) {
+                if (pp.get(i).CompareTo(Lsearch.getText())) {
+                    nn.add(pp.get(i));
+                }
+            }
+            String arr[] = new String[nn.size()];
+            for (int i = 0; i < nn.size(); i++) {
+                arr[i] = nn.get(i).toString();
+            }
+            List1.setListData(arr);
+        }
     }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        fname.setText(null);
+        lname.setText(null);
+        city.setText(null);
+        country.setText(null);
+        year.setText(null);
+        pc.setText(null);
+        email.setText(null);
+        phnumber.setText(null);
+        lab1.setText(null);
+        AddPerson.setVisible(true);
+
+        AddPerson.setSize(404, 570);
+        jButton1.setVisible(true);
+        SavePerfb.setVisible(false);
+        lab1.setText(null);
+
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        // TODO add your handling code here:
+        flag = false;
+        title.setText(null);
+        genre.setText(null);
+        CityforB.setText(null);
+        webForb.setText(null);
+        emailForb.setText(null);
+        countryForB.setText(null);
+        PostalCodeForBus.setText(null);
+        TelForb.setText(null);
+        fname.setText(null);
+        lname.setText(null);
+        city.setText(null);
+        country.setText(null);
+        year.setText(null);
+        pc.setText(null);
+        email.setText(null);
+        phnumber.setText(null);
+        lab1.setText(null);
+        AddBus.setSize(440, 670);
+        AddBus.setVisible(true);
+        pB.clear();
+        Lab2.setText(null);
+
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        // TODO add your handling code here:
+        try {
+            Person p = (Person) nn.get(List1.getSelectedIndex());
+            Jshow.setVisible(true);
+            Jshow.setSize(370, 580);
+            LshowBD.setText(p.getBd1().toString());
+            LShowFn.setText(p.getFirstName());
+            LshowC.setText(p.getCity());
+            LshowE.setText(p.getEmail());
+            LshowPh.setText(p.getPhoneNumber());
+            LshowLn.setText(p.getName());
+            LshowPc.setText(p.getPostalCode());
+            LshowCoun.setText(p.getCountry());
+        } catch (Exception e) {
+            try {
+                Jshow.dispose();
+                JBshow.setVisible(true);
+                JBshow.setSize(860, 670);
+                Business b1 = (Business) nn.get(List1.getSelectedIndex());
+                LshowBD11.setText(b1.getP1().getBd1().toString());
+                LShowFn11.setText(b1.getP1().getFirstName());
+                LshowC11.setText(b1.getP1().getCity());
+                LshowE11.setText(b1.getP1().getEmail());
+                LshowPh11.setText(b1.getP1().getPhoneNumber());
+                LshowLn11.setText(b1.getP1().getName());
+                LshowPc11.setText(b1.getP1().getPostalCode());
+                LshowCoun11.setText(b1.getP1().getCountry());
+                LshowG.setText(b1.getGenre());
+                LshowBE.setText(b1.getEmail());
+                LshowW.setText(b1.getWebsite());
+                LshowT.setText(b1.getName());
+                LShowBPc.setText(b1.getPostalCode());
+                LShowBcity.setText(b1.getCity());
+                LshowBCountry.setText(b1.getCountry());
+                LshowBtel.setText(b1.getPhoneNumber());
+            } catch (Exception ee) {
+                JBshow.dispose();
+                JOptionPane.showMessageDialog(null, "Please Chose one to Show");
+            }
+        }
+    }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void yearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yearActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_yearActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1984,6 +2120,7 @@ public class MenuJF extends javax.swing.JFrame {
     private javax.swing.JLabel Lemail;
     private javax.swing.JLabel Lgenre;
     private javax.swing.JList<String> List;
+    private javax.swing.JList<String> List1;
     private javax.swing.JTextField Lsearch;
     private javax.swing.JLabel LshowBCountry;
     private javax.swing.JLabel LshowBD;
@@ -2009,6 +2146,7 @@ public class MenuJF extends javax.swing.JFrame {
     private javax.swing.JLabel Ltitle;
     private javax.swing.JLabel Lweb;
     private javax.swing.JTextField PostalCodeForBus;
+    private javax.swing.JFrame ResultShow;
     public javax.swing.JButton SavePerfb;
     private javax.swing.JTextField TelForb;
     private javax.swing.JTextField city;
@@ -2026,12 +2164,14 @@ public class MenuJF extends javax.swing.JFrame {
     private javax.swing.JTextField genre;
     public javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
+    private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
@@ -2094,6 +2234,7 @@ public class MenuJF extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lab1;
     private javax.swing.JLabel lab2;
     private javax.swing.JLabel lcity;

@@ -17,7 +17,7 @@ import java.util.Comparator;
  *
  * @author 7roub
  */
-   class Person extends Contact implements Serializable{
+   class Person extends Contact implements Serializable,Compare{
 
     private String firstName;
     BrithDate bd1;
@@ -56,6 +56,10 @@ import java.util.Comparator;
    @Override
     public String toString(){ 
     return getFirstName()+"  "+getName();
+    }
+public boolean CompareTo(String ss) {
+       return getName().regionMatches(0, ss, 0, 3)|| getFirstName().regionMatches(0, ss, 0, 3);
+
     }
 
 

@@ -11,7 +11,7 @@ import java.util.Comparator;
  *
  * @author 7roub
  */
-public class Contact implements Serializable{
+public class Contact implements Serializable,Compare{
     private static final long serialVersionUID = -6470090944414208496L;
     protected String name, country, city, phoneNumber, email;
     protected String postalCode;
@@ -87,6 +87,11 @@ public class Contact implements Serializable{
     
     public String getCity() {
         return city;
+    }
+
+    @Override
+    public boolean CompareTo(String ss) {
+       return getName().regionMatches(0, ss, 0, 3);
     }
 
    

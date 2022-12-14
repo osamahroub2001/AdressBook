@@ -11,7 +11,7 @@ import java.util.Comparator;
  *
  * @author 7roub
  */
-public class Business extends Contact implements Serializable{
+public class Business extends Contact implements Serializable,Compare{
     private String website,genre ;
     private Person p1 ;
 
@@ -63,6 +63,11 @@ public class Business extends Contact implements Serializable{
     
     
     public String toString(){return getName();}
+    
+    public boolean CompareTo(String ss) {
+       return getName().regionMatches(0, ss, 0, 3);
+    }
+
 
     
    
