@@ -4,22 +4,32 @@
  */
 package com.mycompany.adressbook;
 
+import java.io.Serializable;
+import java.util.Comparator;
+
+
+
+
+
+
+
 /**
  *
  * @author 7roub
  */
-public class Person extends Contact {
+   class Person extends Contact implements Serializable{
 
-    private String firstName, lastName;
+    private String firstName;
     BrithDate bd1;
+     
 
     public Person() {
     }
 
-    public Person(String firstName, String lastName, BrithDate bd1, String country, String city, String phoneNumber, String email, int postalCode) {
-        super(country, city, phoneNumber, email, postalCode);
-       this.setFirstName(firstName);
-        this.setLastNamee(lastName);
+    public Person(String firstName, String name, BrithDate bd1, String country, String city, String phoneNumber, String email, String postalCode) {
+        super(name,country, city, phoneNumber, email, postalCode);
+        this.setFirstName(firstName);
+     
         this.bd1 = bd1;
     }
 
@@ -37,20 +47,18 @@ public class Person extends Contact {
         return firstName;
     }
 
-    public void setFirstName(String firstName) {
-        if(isValidString(firstName))
+    private void setFirstName(String firstName) {
+        
         this.firstName = firstName;
     }
 
-    public String getLastName() {
-        return lastName;
+
+   @Override
+    public String toString(){ 
+    return getFirstName()+"  "+getName();
     }
 
-    public void setLastNamee(String lastNamee) {
-        if(isValidString(lastName))
-        this.lastName = lastNamee;
-    }
-    
+
     
 
 }

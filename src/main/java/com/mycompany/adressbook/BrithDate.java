@@ -8,20 +8,22 @@ package com.mycompany.adressbook;
  *
  * @author 7roub
  */
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public class BrithDate {
+public class BrithDate implements Serializable{
 
     private int year;
     private int month;
     private int day;
 
     public BrithDate(int year, int month, int day) {
-
-        setYear(year);
-        setMonth(month);
-        setDay(day);
+        this.year = year;
+        this.month = month;
+        this.day = day;
     }
+
+  
 
     public int getDay() {
         return day;
@@ -37,21 +39,21 @@ public class BrithDate {
     }
 
     public void setDay(int day) {
-        if (day >= 1 && day <= 30) {
+        
             this.day = day;
-        }
+        
     }
 
     public void setMonth(int month) {
-        if (month >= 1 && month <= 12) {
+        
             this.month = month;
-        }
+        
     }
 
     public void setYear(int year) {
-        if (year >= LocalDate.now().getYear() - 130 && year <= LocalDate.now().getYear()) {
+       
             this.year = year;
-        }
+        
     }
-    public String getInfo(){return getDay()+"/"+getMonth()+"/"+getYear();}
+    public String toString(){return getDay()+"/"+getMonth()+"/"+getYear();}
 }

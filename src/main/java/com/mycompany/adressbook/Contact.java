@@ -4,61 +4,71 @@
  */
 package com.mycompany.adressbook;
 
-import java.util.regex.Pattern;
+import java.io.Serializable;
+import java.util.Comparator;
 
 /**
  *
  * @author 7roub
  */
-public class Contact {
-    
-    protected String  country, city, phoneNumber, email;
-    protected int postalCode;
+public class Contact implements Serializable{
+    private static final long serialVersionUID = -6470090944414208496L;
+    protected String name, country, city, phoneNumber, email;
+    protected String postalCode;
     
 
     public Contact() {
     }
     
-    public Contact( String country, String city, String phoneNumber, String email, int postalCode) {
+    public Contact(String name, String country, String city, String phoneNumber, String email, String postalCode) {
         this.setCountry(country);
         this.setCity(city);
         this.setPhoneNumber(phoneNumber);
         this.setEmail(email);
         this.postalCode = postalCode;
+        this.setName(name);
         
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
     
     
     
     public void setCity(String city) {
-        if (isValidString(city)) {
+        
             this.city = city;
-        }
+        
     }
     
-    public void setPostalCode(int postalCode) {
+    public void setPostalCode(String postalCode) {
         this.postalCode = postalCode;
     }
     
     public void setPhoneNumber(String phoneNumber) {
-        if (isValidPhn(phoneNumber)) {
+      
             this.phoneNumber = phoneNumber;
-        }
+        
     }
     
 
     public void setCountry(String country) {
-        if (isValidString(country)) {
+       
             this.country = country;
-        }
+        
     }
     
     public void setEmail(String email) {
-        if(isValidE(email))
+     
         this.email = email;
     }
     
-    public int getPostalCode() {
+    public String getPostalCode() {
         return postalCode;
     }
     
@@ -78,28 +88,8 @@ public class Contact {
     public String getCity() {
         return city;
     }
-    
+
    
-    static boolean isValidString(String name) {
+  
 
-        //return m.matches();
-        return Pattern.matches("[a-zA-Z]\\w{1,29}$+", name);
-        
-    }
-    
-    static boolean isValidPhn(String name) {
-
-        //return m.matches();
-        return Pattern.matches("^\\s*(?:\\+?(\\d{1,3}))?[-. (]*(\\d{3})[-. )]*(\\d{3})[-. ]*(\\d{4})(?: *x(\\d+))?\\s*$", name);
-        
-    }
-    
-    static boolean isValidE(String name) {
-
-        //return m.matches();
-        return Pattern.matches("^(?=.{1,64}@)[A-Za-z0-9_-]+(\\.[A-Za-z0-9_-]+)*@" 
-        + "[^-][A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})$", name);
-        
-    }
-    
 }

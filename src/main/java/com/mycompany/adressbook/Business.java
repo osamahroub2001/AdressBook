@@ -4,20 +4,23 @@
  */
 package com.mycompany.adressbook;
 
+import java.io.Serializable;
+import java.util.Comparator;
+
 /**
  *
  * @author 7roub
  */
-public class Business extends Contact{
-    private String Title,website,genre ;
+public class Business extends Contact implements Serializable{
+    private String website,genre ;
     private Person p1 ;
 
     public Business() {
     }
 
-    public Business(String Title, String website, String genre, Person p1, String country, String city, String phoneNumber, String email, int postalCode) {
-        super(country, city, phoneNumber, email, postalCode);
-        this.Title = Title;
+    public Business(String name, String website, String genre, Person p1, String country, String city, String phoneNumber, String email, String postalCode) {
+        super(name,country, city, phoneNumber, email, postalCode);
+        this.name = name;
         this.website = website;
         this.genre = genre;
         this.p1 = p1;
@@ -26,12 +29,12 @@ public class Business extends Contact{
    
     
 
-    public String getTitle() {
-        return Title;
+    public String getName() {
+        return name;
     }
 
-    public void setTitle(String Title) {
-        this.Title = Title;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getWebsite() {
@@ -59,6 +62,9 @@ public class Business extends Contact{
     }
     
     
+    public String toString(){return getName();}
+
     
+   
     
 }
